@@ -1,24 +1,53 @@
-import Card from "./components/identityCard";
+import React, { useState } from "react";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import studentsData from "./data/students.json";
+import Home from "./pages/Home";
+import StudentList from "./pages/StudentList";
+import AddStudent from "./pages/AddStudent";
+import StudentDetails from "./pages/StudentDetails";
+import "./App.css";
 
 function App() {
+  const [students, setStudents] = useState(studentsData);
+
   return (
-    <div className="flex flex-wrap justify-center">
-      <Card
-        title="React Basics"
-        description="Learn how to create components and props."
-        image="https://picsum.photos/300/200"
-      />
-      <Card
-        title="Reusable Components"
-        description="Build flexible components for scalability."
-        image="https://picsum.photos/300/201"
-      />
-      <Card
-        title="Modern UI Development"
-        description="Combine React with Tailwind CSS for fast design."
-        image="https://picsum.photos/300/202"
-      />
-    </div>
+    <BrowserRouter>
+      <div className="app-container">
+        {/* Navigation Bar */}
+        <nav className="navbar">
+          <div className="nav-links">
+            <Link to="/" className="nav-link">
+              Home
+            </Link>
+            <Link to="/students" className="nav-link">
+              Student Lists
+            </Link>
+            <Link to="/add-student" className="nav-link">
+              Add Students
+            </Link>
+          </div>
+        </nav>
+
+        {/* Route Configuration */}
+        <main className="main-content">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route
+              path="/students"
+              element={<StudentList students={students} />}
+            />
+            <Route
+              path="/add-student"
+              element={<AddStudent setStudents={setStudents} />}
+            />
+            <Route
+              path="/students/:studentNumber"
+              element={<StudentDetails students={students} />}
+            />
+          </Routes>
+        </main>
+      </div>
+    </BrowserRouter>
   );
 }
 

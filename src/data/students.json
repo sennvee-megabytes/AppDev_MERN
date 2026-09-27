@@ -1,0 +1,26 @@
+[
+  {
+    "fullName": "John Doe",
+    "studentNumber": "S0001",
+    "course": "BSIT",
+    "courseDescription": "Bachelor of Science in Information Technology",
+    "yearLevel": "3rd Year",
+    "sex": "Male"
+  },
+  {
+    "fullName": "Jane Doe",
+    "studentNumber": "S0002",
+    "course": "BSCS",
+    "courseDescription": "Bachelor of Science in Computer Science",
+    "yearLevel": "2nd Year",
+    "sex": "Female"
+  },
+  {
+    "fullName": "Mark Cruz",
+    "studentNumber": "S0003",
+    "course": "BSIS",
+    "courseDescription": "Bachelor of Science in Information Systems",
+    "yearLevel": "4th Year",
+    "sex": "Male"
+  }
+]
